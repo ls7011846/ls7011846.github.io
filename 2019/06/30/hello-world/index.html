@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 拾忆</title>
+  <title>java对象与引用 | 拾忆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="教育公司程序猿">
-<meta name="keywords" content="java python openstack 音视频">
-<meta property="og:type" content="website">
-<meta property="og:title" content="拾忆">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; java虽说是“一切皆对象”，但是也会引出一系列的关于对象创建的问题。如 String str1 = new String(“aaabb”);  和  String str2 = “aaabb”; 的区别，抑或是上述两个语句创建了多少个对象，(str1==str2) ? 这些说法其实我在之前也是不太确定，仅有一些模糊的认识，接下来就一起学">
+<meta name="keywords" content="java对象与引用,new string">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java对象与引用">
+<meta property="og:url" content="http://yoursite.com/2019/06/30/hello-world/index.html">
 <meta property="og:site_name" content="拾忆">
-<meta property="og:description" content="教育公司程序猿">
+<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; java虽说是“一切皆对象”，但是也会引出一系列的关于对象创建的问题。如 String str1 = new String(“aaabb”);  和  String str2 = “aaabb”; 的区别，抑或是上述两个语句创建了多少个对象，(str1==str2) ? 这些说法其实我在之前也是不太确定，仅有一些模糊的认识，接下来就一起学">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-30T07:41:22.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="拾忆">
-<meta name="twitter:description" content="教育公司程序猿">
+<meta name="twitter:title" content="java对象与引用">
+<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; java虽说是“一切皆对象”，但是也会引出一系列的关于对象创建的问题。如 String str1 = new String(“aaabb”);  和  String str2 = “aaabb”; 的区别，抑或是上述两个语句创建了多少个对象，(str1==str2) ? 这些说法其实我在之前也是不太确定，仅有一些模糊的认识，接下来就一起学">
   
     <link rel="alternative" href="/atom.xml" title="拾忆" type="application/atom+xml">
   
@@ -158,36 +159,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/30/hello-world/" class="archive-article-date">
-  	<time datetime="2019-06-30T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/hello-world/">java对象与引用</a>
+    <h1 class="article-title" itemprop="name">
+      java对象与引用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/06/30/hello-world/" class="archive-article-date">
+  	<time datetime="2019-06-30T01:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&#160; &#160; &#160; &#160; java虽说是“一切皆对象”，但是也会引出一系列的关于对象创建的问题。如 String str1 = new String(“aaabb”);  和  String str2 = “aaabb”; 的区别，抑或是上述两个语句创建了多少个对象，(str1==str2) ? 这些说法其实我在之前也是不太确定，仅有一些模糊的认识，接下来就一起学习一下。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="关于对象引用"><a href="#关于对象引用" class="headerlink" title="关于对象引用"></a>关于对象引用</h2><p>&#160; &#160; &#160; &#160; 首先避开string不谈，string这个比较特殊，我们先引入一个普通的对象，如User；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User user1;</span><br><span class="line">user1 = new User(&quot;张三&quot;);</span><br><span class="line"></span><br><span class="line">User user2 = new User(&quot;李四&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>&#160; &#160; &#160; &#160; 上面两个对象的创建有什么区别吗？肯定是有的，其中对于user1来说，第一步只是先创建了一个user1类型的引用，而第二步，才是在jvm的堆中实例化了一个User对象，完成了整个对象的创建。</p>
+<p>&#160; &#160; &#160; &#160; 而如果user1类型的对象引用在第一步时指向哪里呢，应该是指向了null，null作为java的一种特殊类型，我觉得既不能叫一种变量，也不能叫做一个对象，因为实在是太特殊了，两种类型的特性都和它不吻合。因此得出结论，User user1 = new User(“张三”); 这个语句创建了两个对象，一个是User类型的引用对象，在jvm的栈中，实例化的对象则在jvm的堆中。</p>
+<h2 id="String的对象及引用"><a href="#String的对象及引用" class="headerlink" title="String的对象及引用"></a>String的对象及引用</h2><p>&#160; &#160; &#160; &#160; String相较于普通对象有些特殊，那我们依旧把String拉出来，创建对象和引用，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String str1;</span><br><span class="line">str1 = new String(&quot;123&quot;);</span><br><span class="line"></span><br><span class="line">String str2 = new String(&quot;123&quot;);</span><br><span class="line"></span><br><span class="line">String str3 = &quot;123&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>&#160; &#160; &#160; &#160; 我们依旧是和上面的操作方式一样，创建了str1和str2，因此二者的区别还是是单独创建对象引用和对象实例化。但String有另外的创建方式，就是str3，str3的创建方式是这样的：先去jvm字符串常量池中寻找有没有 “123”的字符串常亮，如果有的话，则直接进行引用的赋值；如果没有，则在常量池中创建”123”字符串，再进行引用赋值。因此又引出了对于String对象的==和.equals的的对比使用。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">        String str1 = &quot;123&quot;;</span><br><span class="line">        String str2 = &quot;123&quot;;</span><br><span class="line">        String str3 = new String(&quot;123&quot;);</span><br><span class="line">        String str4 = new String(&quot;123&quot;);</span><br><span class="line">        System.out.println(&quot;str1==str2:&quot;+(str1==str2));</span><br><span class="line">        System.out.println(&quot;str3==str4:&quot;+(str3==str4));</span><br><span class="line">        System.out.println(&quot;str1==str3:&quot;+(str1==str3));</span><br><span class="line">        System.out.println(&quot;str1.euqals(str3):&quot;+(str1.equals(str3)));</span><br><span class="line">————————————————————————————————————————————————————————————————————</span><br><span class="line">str1==str2:true</span><br><span class="line">str3==str4:false</span><br><span class="line">str1==str3:false</span><br><span class="line">str1.euqals(str3):true</span><br></pre></td></tr></table></figure>
+
+<p>&#160; &#160; &#160; &#160; 结果如上，也就是说，直接创建的相同内容的string，是在常量池中，因此引用对象指向的地址为同一个；而使用new String进行实例化的String类型，每次都是在栈中新建一个对象。</p>
+<h2 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h2><p>&#160; &#160; &#160; &#160; 关于常量池，又是另外一个知识了，在java中，很多包装类型都有自己的常量池，甚至有已经初始化的常量。包装类的大部分都实现了常量池技术，这些类是Byte,Short,Integer,Long,Character,Boolean,另外两种浮点数类型的包装类则没有实现。另外Byte,Short,Integer,Long,Character这5种整型的包装类也只是在对应值小于等于127时才可使用对象池，也即对象不负责创建和管理大于127的这些类的对象。</p>
+<p>&#160; &#160; &#160; &#160; 因此在使用Integer类型时，即使使用了==这个操作符来比较大小，在-128-127之间都还是有效的，但如果不在这个范围内使用，便会出问题，因此对于对象的比较来说，还是需要用专有的比较大小的方法，否则就是一个bug。</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>&#160; &#160; &#160; &#160; 这篇文章探索了java中的对象与引用及部分常量池的使用及误区，对于String类型来说，还可以选择将这个String对象强行加入至常量池中，具体可见intern方法 <a href="https://www.cnblogs.com/guozhenqiang/p/5633269.html" target="_blank" rel="noopener">https://www.cnblogs.com/guozhenqiang/p/5633269.html</a> 。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,106 +239,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/30/hello-world/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/29/Post与Get方法初探以及Restful接口测试-1/" class="archive-article-date">
-  	<time datetime="2019-06-29T03:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/29/Post与Get方法初探以及Restful接口测试-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Post与Get方法初探以及Restful接口测试</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/29/Post与Get方法初探以及Restful接口测试-1/">Post与Get方法初探以及Restful接口测试</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">restful rest post get</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rest</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">post</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">get</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/30/linux下C打印log日志-1/" class="archive-article-date">
-  	<time datetime="2016-06-30T01:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/30/linux下C打印log日志-1/">linux下C打印log日志</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -325,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
