@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>微服务之API网关对比 | 拾忆</title>
+  <title>音视频码率计算 | 拾忆</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; 微服务化是当前一大趋势，注册中心则是微服务最基础的组件，是之前组内安排的任务，于是把结果分享出来，本文对当前业界比较流行的微服务组件进行了调研，并作出了总结。 正文&amp;#160; &amp;#160; &amp;#160; &amp;#160; 当前对微服务组件的调研维度如下：社区生态热度、易用性、性能、cap分布式特性、当前组件维护状态、重点功能等。 组件介绍">
-<meta name="keywords" content="java python openstack 音视频">
-<meta property="og:type" content="website">
-<meta property="og:title" content="微服务之API网关对比">
-<meta property="og:url" content="http://yoursite.com/微服务之API网关对比/index.html">
+  <meta name="description" content="一、前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; 音视频处理相关，首先需要面临的是音视频多媒体的比特率问题，比特率也是码率，一个音频比特率为 128kb/s，即每秒128k bit，8bit=1Byte，也就是这个音频每秒钟占用16KB的存储空间，而如果涉及到多声道就应该乘以相应的倍数。 &amp;#160; &amp;#160; &amp;#160; &amp;#160; 由于视频由视频图像数据与音频数据组装而成">
+<meta name="keywords" content="音视频处理,码率计算,比特率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音视频码率计算">
+<meta property="og:url" content="http://yoursite.com/2019/07/21/音视频码率计算/index.html">
 <meta property="og:site_name" content="拾忆">
-<meta property="og:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; 微服务化是当前一大趋势，注册中心则是微服务最基础的组件，是之前组内安排的任务，于是把结果分享出来，本文对当前业界比较流行的微服务组件进行了调研，并作出了总结。 正文&amp;#160; &amp;#160; &amp;#160; &amp;#160; 当前对微服务组件的调研维度如下：社区生态热度、易用性、性能、cap分布式特性、当前组件维护状态、重点功能等。 组件介绍">
+<meta property="og:description" content="一、前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; 音视频处理相关，首先需要面临的是音视频多媒体的比特率问题，比特率也是码率，一个音频比特率为 128kb/s，即每秒128k bit，8bit=1Byte，也就是这个音频每秒钟占用16KB的存储空间，而如果涉及到多声道就应该乘以相应的倍数。 &amp;#160; &amp;#160; &amp;#160; &amp;#160; 由于视频由视频图像数据与音频数据组装而成">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-13T12:08:43.683Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/15123920/60674797-80444780-9ead-11e9-913d-d077072537e4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/15123920/61588173-728b0380-abc9-11e9-8159-1bb4bc51703e.png">
+<meta property="og:updated_time" content="2019-07-21T07:22:28.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微服务之API网关对比">
-<meta name="twitter:description" content="前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; 微服务化是当前一大趋势，注册中心则是微服务最基础的组件，是之前组内安排的任务，于是把结果分享出来，本文对当前业界比较流行的微服务组件进行了调研，并作出了总结。 正文&amp;#160; &amp;#160; &amp;#160; &amp;#160; 当前对微服务组件的调研维度如下：社区生态热度、易用性、性能、cap分布式特性、当前组件维护状态、重点功能等。 组件介绍">
+<meta name="twitter:title" content="音视频码率计算">
+<meta name="twitter:description" content="一、前言&amp;#160; &amp;#160; &amp;#160; &amp;#160; 音视频处理相关，首先需要面临的是音视频多媒体的比特率问题，比特率也是码率，一个音频比特率为 128kb/s，即每秒128k bit，8bit=1Byte，也就是这个音频每秒钟占用16KB的存储空间，而如果涉及到多声道就应该乘以相应的倍数。 &amp;#160; &amp;#160; &amp;#160; &amp;#160; 由于视频由视频图像数据与音频数据组装而成">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/15123920/60674797-80444780-9ead-11e9-913d-d077072537e4.png">
   
     <link rel="alternative" href="/atom.xml" title="拾忆" type="application/atom+xml">
   
@@ -165,119 +168,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-音视频码率计算" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      微服务之API网关对比
+      音视频码率计算
     </h1>
   
 
         
-        <a href="/微服务之API网关对比/index.html" class="archive-article-date">
-  	<time datetime="2019-07-13T12:08:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
+        <a href="/2019/07/21/音视频码率计算/" class="archive-article-date">
+  	<time datetime="2019-07-21T07:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&#160; &#160; &#160; &#160; 微服务化是当前一大趋势，注册中心则是微服务最基础的组件，是之前组内安排的任务，于是把结果分享出来，本文对当前业界比较流行的微服务组件进行了调研，并作出了总结。</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>&#160; &#160; &#160; &#160; 当前对微服务组件的调研维度如下：社区生态热度、易用性、性能、cap分布式特性、当前组件维护状态、重点功能等。</p>
-<h2 id="组件介绍"><a href="#组件介绍" class="headerlink" title="组件介绍"></a>组件介绍</h2><ol>
-<li>eureka：netflix公司产品，springcloud1.X版本集成，后续版本宣布不再开源；</li>
-<li>nacos：阿里产品，springcloud-alibaba集成，近期开源，版本0.9.0，基于springboot2.X，服务注册中心与配置中心可以集成配置。</li>
-<li>consul：HashiCorp 公司推出的开源工具。<h2 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h2><h3 id="1-eureka"><a href="#1-eureka" class="headerlink" title="1. eureka"></a>1. eureka</h3>&#160; &#160; &#160; &#160; server配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pom引用</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;spring-cloud-starter-eureka-server&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">yml配置</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  instance:</span><br><span class="line">    hostname: localhost</span><br><span class="line">    instance-id: localhost:$&#123;server.port&#125;</span><br><span class="line">  client:</span><br><span class="line">    register-with-eureka: false</span><br><span class="line">    fetch-registry: false</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka</span><br><span class="line">  server:</span><br><span class="line">    renewalPercentThreshold: 0.49</span><br><span class="line">    renewalThresholdUpdateIntervalMs: 180000 # 3mins</span><br><span class="line">    #peerEurekaNodesUpdateIntervalMs: 500</span><br></pre></td></tr></table></figure>
-
-</li>
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>&#160; &#160; &#160; &#160; 音视频处理相关，首先需要面临的是音视频多媒体的比特率问题，比特率也是码率，一个音频比特率为 128kb/s，即每秒128k bit，8bit=1Byte，也就是这个音频每秒钟占用16KB的存储空间，而如果涉及到多声道就应该乘以相应的倍数。</p>
+<p>&#160; &#160; &#160; &#160; 由于视频由视频图像数据与音频数据组装而成，因此 对于视频来说，就除了音频audio之外，还要加上video的大小。</p>
+<p>&#160; &#160; &#160; &#160; 上述音频视频的码率都会涉及到编解码压缩比例的问题。</p>
+<h1 id="二、正文"><a href="#二、正文" class="headerlink" title="二、正文"></a>二、正文</h1><h2 id="音频码率相关"><a href="#音频码率相关" class="headerlink" title="音频码率相关"></a>音频码率相关</h2><p>&#160; &#160; &#160; &#160; 首先是音频码率的计算，一个音频的基本属性假设为： 采样率：44.1KHZ，码率：128kb/s，通道数：双声道。</p>
+<ol>
+<li>采样率——44.1KHZ，每秒钟对音频的采样频次。</li>
+<li>通道数——双声道（立体音）左右耳听到差异的声音，有多少个通道数就有多少个维度的音频数据。</li>
+<li>比特率（码率）——128kb/s，每秒钟占多少kb。</li>
+<li>采样位数  采样样本幅度量化，衡量声音波动变化的一个参数，也可以说是声卡的分辨率。即纵轴刻度的精确度。假设采样位数如下：</li>
 </ol>
-<p>springbootapplication启动类加入@EnableEurekaServer</p>
-<p>&#160; &#160; &#160; &#160; client配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pom引用</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"> </span><br><span class="line">yml配置</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://localhost:10001/eureka</span><br></pre></td></tr></table></figure>
-
-<p>springbootapplication启动类加入@EnableEurekaServer，直接启动server即可。</p>
-<h3 id="2-nacos"><a href="#2-nacos" class="headerlink" title="2. nacos"></a>2. nacos</h3><p>server配置:</p>
-<p>&#160; &#160; &#160; &#160; server下载安装，并启动, unzip nacos-server-$version.zip 或者 tar -xvf nacos-server-$version.tar.gz</p>
-<p>cd nacos/bin</p>
-<p>sh startup.sh -m standalone</p>
-<p>client配置:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pom引用</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;0.9.0.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">yml配置</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: nacos-demo</span><br><span class="line">  cloud:</span><br><span class="line">    nacos:</span><br><span class="line">      discovery:</span><br><span class="line">        server-addr: 127.0.0.1:8848</span><br><span class="line"></span><br><span class="line">management:</span><br><span class="line">  endpoints:</span><br><span class="line">    web:</span><br><span class="line">      exposure:</span><br><span class="line">        include: &apos;*&apos;</span><br></pre></td></tr></table></figure>
-
-<p>springbootapplication启动类加入@EnableEurekaClient。</p>
-<h3 id="3-consul"><a href="#3-consul" class="headerlink" title="3. consul"></a>3. consul</h3><p>server配置:</p>
-<p>官方地址下载，并且启动</p>
-<p>以单节点启动<br>consul agent -advertise 127.0.0.1 -data-dir=/tmp/consul -server -bootstrap</p>
-<p>client配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pom引用</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line"> &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line"> &lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;</span><br><span class="line"> &lt;version&gt;2.1.1.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">yml配置</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: consul-provider</span><br><span class="line">  cloud:</span><br><span class="line">    consul:</span><br><span class="line">      host: 127.0.0.1</span><br><span class="line">      port: 8500</span><br><span class="line">      discovery:</span><br><span class="line">        register: true</span><br><span class="line">        service-name: consul-provider</span><br></pre></td></tr></table></figure>
-
-<p>springbootapplication启动类加入@EnableEurekaClient。</p>
-<h2 id="使用对比"><a href="#使用对比" class="headerlink" title="使用对比"></a>使用对比</h2><table>
-<thead>
-<tr>
-<th>维度</th>
-<th align="left">eureka</th>
-<th align="left">nacos</th>
-<th align="left">consul</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>社区生态</td>
-<td align="left">社区热度高</td>
-<td align="left">社区热度较低、中文文档多</td>
-<td align="left">社区热度较高</td>
-</tr>
-<tr>
-<td>性能</td>
-<td align="left">8核16G服务端定时轮询查询更新，当服务数量过多(8000-10000)时，压力过大</td>
-<td align="left">8核16G单个节点9000以上的连接时会出现硬件负载过高场景</td>
-<td align="left">暂无</td>
-</tr>
-<tr>
-<td>cap分布式特性</td>
-<td align="left">AP可用性以及分区容错性;可用性：无主从节点，一个节点挂了自动切换其他节点,但可能会导致不同的注册中心节点的服务列表不一致，可以接受</td>
-<td align="left">AP或CP</td>
-<td align="left">CP：作为分布式集群来说，是CP</td>
-</tr>
-<tr>
-<td>维护状态</td>
-<td align="left">1.X停止维护；2.0版本闭源</td>
-<td align="left">近期才开源；只到0.9.0.release;</td>
-<td align="left">一直在跟着spring cloud维护，目前到2.1.1</td>
-</tr>
-<tr>
-<td>重点功能，特点</td>
-<td align="left">1.springcloud-starter服务，开箱即用2.有控制台</td>
-<td align="left">1、支持springcloud 服务发现、配置管理2、有web ui控制台3、通过了大规模的性能测试4、注册中心与配置中心</td>
-<td align="left">有控制台；缺点：暂时没有对consul集群的配置方式，即服务无法注册多个consul节点</td>
-</tr>
-<tr>
-<td>注册使用</td>
-<td align="left">service 注册时向eureka server发送自身服务信息；service每30秒向eureka server续约服务；service 每30秒拉取服务列表至本地缓存。</td>
-<td align="left">同样是使用服务不断上报心跳的方式保持在注册中心的活跃性；服务发现。一、不断从服务端查询可用服务实例。二、从已变服务队列中通知服务持有者的查询任务，服务发生变更时更新本地服务列表。</td>
-<td align="left">既支持consul主动检查服务的情况，也支持服务主动向consul发送心跳报告自己的健康状况。</td>
-</tr>
-<tr>
-<td>其他</td>
-<td align="left"></td>
-<td align="left">k8s集成，dubbo集成均支持</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td># 小结</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>&#160; &#160; &#160; &#160;  eureka、nacos、consul均能支持微服务注册及web ui控制台的最基础的需求，但eureka当前停止开源、consul暂时不支持client配置注册中心集群，按需选择。</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-</tbody></table>
+<p>&#160; &#160; &#160; &#160; ——1 字节(也就是8bit) 只能记录 256 个数, 也就是只能将振幅划分成 256 个等级;</p>
+<p>&#160; &#160; &#160; &#160; ——2 字节(也就是16bit) 可以细到 65536 个数,  CD 标准</p>
+<p>&#160; &#160; &#160; &#160; 于是先放一张图如下所示，这张图是一个音频的波形图，波形的横轴设为X，纵轴为Y。Y轴的精度就是采样位数，而X轴的精度则代表每秒钟采样频次即采样率，因此一个音频的比特率即单位时间所占空间大小为：比特率=采样率 * 采样位数 * 通道数。</p>
+<p>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <img src="https://user-images.githubusercontent.com/15123920/60674797-80444780-9ead-11e9-913d-d077072537e4.png" alt="image"></p>
+<p>&#160; &#160; &#160; &#160; 而又由于音频格式的不同，所采用的压缩编码方式皆不相同，因此在计算音频对应比特率时，还应乘以压缩的倍率，如0.2等。</p>
+<p>&#160; &#160; &#160; &#160; 比特率=采样率 * 采样位数 * 通道数 * 压缩比例</p>
+<h2 id="视频码率相关"><a href="#视频码率相关" class="headerlink" title="视频码率相关"></a>视频码率相关</h2><p>&#160; &#160; &#160; &#160; 由于视频由视频图像及音频声音封装而成，因此视频的码率计算需要分为两部分：视频图像的码率 + 视频中音频的码率。而音频的码率我们已经在上面计算过了，因此接下来要说的是视频图像的码率。<br>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <img src="https://user-images.githubusercontent.com/15123920/61588173-728b0380-abc9-11e9-8159-1bb4bc51703e.png" alt="image"></p>
+<p>&#160; &#160; &#160; &#160; 如上图所示，是一段视频，如果要计算一个未经过压缩的视频图像的码率，则需要图像的分辨率（如1080*720）属性，图像位深度（如8或16）以及每秒帧数（如60，90）。即公式如下：</p>
+<p>&#160; &#160; &#160; &#160; 帧率 * 像素宽 * 像素长 * 位深度 = 视频图像码率。如一个视频属性为：60fps（帧率），480*720p，32位位深，则视频图像码率 = 60 * 480 * 720 * 32。</p>
+<p>&#160; &#160; &#160; &#160; 整个未压缩的视频码率 = 音频码率 + 视频图像码率；由于当前视频均采用编码压缩，因此还需要乘以倍率，视频码率 = 音频码率* 音频压缩比率 + 视频图像码率* 视频压缩比率。而计算出的视频码率只能大约得估算出真正的视频码率，因为其中还有一些其他的影响参数。</p>
+<h1 id="三、结语"><a href="#三、结语" class="headerlink" title="三、结语"></a>三、结语</h1><p>&#160; &#160; &#160; &#160; 在写这篇博客的时候，也发现了有个根据视频参数自动计算视频码率的网站，<a href="https://toolstud.io/video/bitrate.php" target="_blank" rel="noopener">https://toolstud.io/video/bitrate.php</a> ，感觉很不错，推荐。</p>
+<p>&#160; &#160; &#160; &#160; 更多的音视频处理及ffmpeg使用在我的csdn博客，暂时未做博客迁移。<a href="https://blog.csdn.net/LS7011846" target="_blank" rel="noopener">https://blog.csdn.net/LS7011846</a></p>
 
       
 
@@ -307,6 +239,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">音视频处理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">码率计算</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">比特率</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -357,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/微服务之API网关对比/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/21/音视频码率计算/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -369,6 +320,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/13/Untitled/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微服务之注册中心对比</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -419,7 +380,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
